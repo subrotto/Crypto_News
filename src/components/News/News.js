@@ -1,11 +1,17 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
 
+
+const handleClick=(url)=>{
+    window.location.href=url;
+    
+}
+
 const News = (props) => {
     const {title,description,urlToImage,url}=props.article;
     return (
         <Grid item xs={2} sm={4} md={4}>
-        <Card sx={{ maxWidth: 345 }}>
+        <Card onClick={()=>handleClick(url)} sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -23,7 +29,7 @@ const News = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button href={url} target='_blank' size="small" color="primary">
+        <Button target='_blank' onClick={()=>handleClick(url)}  size="small" color="primary">
           See More
         </Button>
       </CardActions>
